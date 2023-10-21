@@ -1,0 +1,235 @@
+.p1 {
+    background-image: url(../assets/condo/Bloom/Bloom-Amenity5.jpg);
+}
+
+.p2 {
+    background-image: url(../assets/condo/Fame/image-180-16.jpg);
+}
+
+.p3 {
+    background-image: url(../assets/condo/Glam/Glam-Amenity7.jpg);
+}
+
+.p4 {
+    background-image: url(../assets/condo/Jade/Jade-Commercial.jpg);
+}
+
+.p5 {
+    background-image: url(../assets/condo/Light/light_amenities-1.jpg);
+}
+
+.p6 {
+    background-image: url(../assets/condo/Light2/image-603.jpg);
+}
+
+.p7 {
+    background-image: url(../assets/condo/Shore/Shore-Resi.png);
+}
+
+.p8 {
+    background-image: url(../assets/condo/Zeal/image-180-13.png);
+}
+
+
+[astro-icon="heart-circle-svgrepo-com"] {
+    width: 2rem;
+    height: 2rem;
+}
+
+[astro-icon="beds-sleep-svgrepo-com"], [astro-icon="bathtub-svgrepo-com"], [astro-icon="area"] {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+[astro-icon="heart-circle-svgrepo-com"], [astro-icon="location-svgrepo-com"] {
+    filter: contrast(200%) invert(100%);
+
+}
+
+[astro-icon="location-svgrepo-com"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.location:before {
+    content: "Dasmarinas Cavite";
+    display: block;
+    height: auto;
+    font-size: 0.72rem;
+    left: 13%;
+    top: 15%;
+    color: aliceblue;
+    position: relative;
+    text-wrap: nowrap;
+}
+
+.description-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: baseline;
+    margin: 0%;
+}
+
+.description-icon span {
+    width: 2rem;
+    height: 3rem;
+    margin-right: 4rem;
+}
+
+.bathtub-icon:before {
+    content: "2 room";
+    display: block;
+    height: auto;
+    font-size: 0.62rem;
+    left: 100%;
+    top: 40%;
+    position: relative;
+    text-wrap: nowrap;
+
+}
+
+.area-icon:before {
+    content: "2 room";
+    display: block;
+    height: auto;
+    font-size: 0.62rem;
+    left: 100%;
+    top: 40%;
+    position: relative;
+    text-wrap: nowrap;
+
+}
+
+.bedroom-icon:before {
+    content: "2 room";
+    display: block;
+    height: auto;
+    font-size: 0.62rem;
+    left: 100%;
+    top: 40%;
+    position: relative;
+    text-wrap: nowrap;
+}
+
+.card-entry-heart, .card-entry-location {
+    background: none;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 50%;
+}
+
+.card-entry-heart {
+    position: relative;
+    top: clamp(70%, 70%, 80%);
+    left: clamp(73%, 79%, 70%);
+}
+
+.discover-card-selection {
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+
+.card-entry-container {
+    margin: 0%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    width: 86%;
+    justify-content: center;
+}
+
+.card-bg-image {
+    width: auto;
+    margin: 0%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: clamp(180px, 15vh, 300px);
+    background-size: cover;
+    transition-duration: 0.3s;
+
+}
+
+.card-description {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    background-color: #f0f1f6;
+}
+
+.card-description>* {
+    margin: 0%;
+}
+
+.card-entry {
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+.discover-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.discover-nav-layout {
+    width: clamp(80%, 60%, 70%);
+}
+
+.discover-nav-layout ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: nowrap;
+    margin: 0%;
+    margin-top: 2rem;
+    align-content: center;
+    padding: 0%;
+    gap: 0.5rem;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+}
+
+.discover-nav-selection {
+    text-decoration: none;
+    list-style: none;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.discover-nav-selection button {
+    margin-top: max(5px);
+    padding: 0.75rem;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: #161b5f;
+    border: none;
+    border-radius: 25px;
+    color: #f0f1f6;
+}
+
+@media (max-width:500px) {
+    .discover-container {
+        transform: translateY(5rem);
+    }
+
+    .discover-nav-layout ul {
+        gap: 0.5rem;
+        overflow-x: scroll;
+        padding: 1rem;
+        scroll-snap-align: start;
+        scroll-behavior: smooth;
+        scroll-snap-stop: always;
+    }
+}

@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../assets/logo.png__1_-removebg.png"
+import SearchFilter from "./SearchFilter.astro"
+import "./Header.css"
+---
+
+<header class="main-container">
+   <section class="primary-header  display">
+    <div class="primary-header-con">
+        <div class="logo" />
+    <button class="mobile-nav-toggle" aria-controls="primary-nav" aria-expanded="false" >
+    </button>
+    <nav>
+
+        <ul id="primary-nav" class="primary-nav flex" aria-hidden="true" data-visible="false">
+            <li><a href="">Home</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    
+    </nav>
+    </div>
+    
+   </section>
+    
+    <SearchFilter/>
+
+</header>
+<script>
+    const primaryNav = document.querySelector(".primary-nav")
+    const navToggle = document.querySelector(".mobile-nav-toggle")
+    
+    navToggle?.addEventListener("click",()=>{
+        const visibility = primaryNav?.getAttribute('data-visible')
+        console.log(visibility)
+
+        if(visibility === "false"){
+            primaryNav?.setAttribute("data-visible", "true")
+            navToggle?.setAttribute("aria-expanded", "true")
+
+        }else{
+            primaryNav?.setAttribute("data-visible", "false")
+            navToggle?.setAttribute("aria-expanded", "false")
+
+        }
+})
+</script>

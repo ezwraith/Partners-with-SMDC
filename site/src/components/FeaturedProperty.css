@@ -1,0 +1,125 @@
+h1 {
+    margin-bottom: 3rem;
+    color: black;
+}
+
+.slider-btn {
+    display: none;
+}
+
+.featured-property-container {
+    position: relative;
+    align-items: center;
+    top: auto;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-properties {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.featured-properties-con {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(35%, 250px, 30vw), 1fr));
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.featured-properties-con div {
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    min-height: 230px;
+}
+
+.propert-1 {
+    grid-row: span 2/auto;
+    background: url(../assets/condo/Bloom/Bloom-Amenity4.jpg);
+}
+
+.propert-2 {
+    background: url(../assets/condo/Fame/Fame-Asset-3.png);
+}
+
+.propert-3 {
+    background: url(../assets/condo/Light/light_amenities-3.jpg);
+}
+
+.propert-4 {
+    background: url(../assets/condo/Light/light_amenities-4.jpg);
+}
+
+@media (max-width:600px) {
+    .slider-btn {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+    }
+
+    .featured-property-container {
+        position: absolute;
+        width: 100%;
+        top: 15%;
+        outline: 1px solid black;
+    }
+
+    .featured-properties-con {
+        --delta-x: 0%;
+        display: flex;
+        flex-direction: row;
+        background-color: aqua;
+        width: 80%;
+        gap: 0;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .slider-item {
+        border-radius: 10px;
+        height: 100%;
+        min-width: 100%;
+        transform: translateX(var(--delta-x));
+        transition: transform 400ms;
+    }
+
+    .right-btn, .left-btn {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        border: none;
+        background-size: cover;
+        transform: scale(-1);
+        border-radius: 50%;
+        overflow: hidden;
+        align-content: center;
+    }
+
+    .prev-img {
+        width: 98%;
+        height: auto;
+        background: none;
+    }
+
+
+    .left-btn {
+        left: 12%;
+    }
+
+    .right-btn {
+        transform: scale(1);
+        right: 12%;
+    }
+}

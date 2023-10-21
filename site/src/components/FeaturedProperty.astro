@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import "./FeaturedProperty.css"
+import prev  from "../assets/icons/navigation-forward-arrow-svgrepo-com.svg"
+---
+
+<section class="featured-property-container ">
+    <div class="featured-properties">
+        <h1>Featured Properties</h1>
+        <div class="slider-btn">
+            <a class="left-btn">
+                <Image src={prev} class="prev-img" alt="fsafsafsa"/>
+            </a>
+            
+            <a class="right-btn"><Image src={prev} class="prev-img" alt="fsafsafsa"/>
+            </a>
+        </div>
+        <div class="featured-properties-con">
+            <div class="propert-1 slider-item"></div>
+            <div class="propert-2 slider-item"></div>
+            <div class="propert-3 slider-item"></div>
+            <div class="propert-4 slider-item"></div>
+        </div>
+    </div>
+</section>
+<script defer>
+    let x = 0;
+    let deltaX = "0%";
+    let leftBtn = document.querySelector(".left-btn");
+    let rightBtn = document.querySelector(".right-btn");
+    leftBtn?.addEventListener("click",()=>{
+        if(x < 0){
+            x += 1;
+            deltaX = `${x*100}%`;
+        }
+        if(x >= 4){
+            x -= 1;
+            deltaX = `${-x*100}%`;
+        }
+      
+        let abs_x = Math.abs(x);
+        if(abs_x <= 0)
+        {
+            document.querySelector(".left-btn").style.setProperty('display','none');
+        }
+        if(abs_x < 3 && abs_x > 0)
+        {            
+            document.querySelector(".right-btn").style.setProperty('display','block');
+            document.querySelector(".left-btn").style.setProperty('display','block');
+        }        
+        document.querySelector(".featured-properties-con").style.setProperty('--delta-x',deltaX)
+    })
+    rightBtn?.addEventListener("click",()=>{
+        if(x <= 0){
+            x -= 1;
+            deltaX = `${x*100}%`;
+        }
+        if(x <= -4){
+            x += 1;
+            deltaX = `${x*100}%`;
+        }
+        let abs_x = Math.abs(x);
+        if(abs_x >= 3)
+        {
+            document.querySelector(".right-btn").style.setProperty('display','none');
+        }
+       if(abs_x < 3 && abs_x > 0)
+       {            
+        document.querySelector(".right-btn").style.setProperty('display','block');
+        document.querySelector(".left-btn").style.setProperty('display','block');
+       } 
+        document.querySelector(".featured-properties-con").style.setProperty('--delta-x',deltaX)
+    })
+</script>
+

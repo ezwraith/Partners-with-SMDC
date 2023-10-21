@@ -1,0 +1,113 @@
+---
+import SearchIcon from "../assets/icons/search.svg"
+import {Image} from "astro:assets"
+import "./SearchFilter.css"
+function prevent(event:Event){
+    event.preventDefault()
+}
+
+import { ViewTransitions } from 'astro:transitions';
+
+---
+<section class="container">
+    <section class="search-filter-container">
+        
+        <section class="filter">
+            <select id="condos" name="condos">
+                <option value="Condos" disabled selected>Properties</option>
+                <option value="Light">Light</option>
+                <option value="Air">Air</option>
+                <option value="Calm">Calm</option>
+                <option value="Emerald">Emerald</option>
+            </select>
+            <select id="location">
+                <option value="Location" disabled selected>Location</option>
+                <option value="Boni">Boni</option>
+                <option value="Cebu">Cebu</option>
+                <option value="Makati">Makati</option>
+            </select>
+        </section> 
+        <input type="text" class="search-bar" placeholder="Search location or property name">
+        <button  class="search-btn" onclick="document.getElementById('filter-search').style.inset = '0%'; document.querySelector('.hide').style.setProperty('--hide','hidden');  document.querySelector('.hide').style.setProperty('--fixed','fixed');" >
+            <Image src={SearchIcon} alt="Search" class="search-icon"/>
+            <span>Look for</span>
+        </button>
+        
+</section>
+
+<div id="filter-search" tabindex="-1">
+
+    <div class="top-filter-search">
+     <button class="filter-search-btn" onclick="document.getElementById('filter-search').style.top = '-100%'; document.querySelector('.hide').style.setProperty('--hide','auto'); document.querySelector('.hide').style.setProperty('--fixed','absolute');"/>
+ 
+         <div class="renting-type-pref">
+             <button><span tabindex="0" class="l1">RTO</span></button>
+             <button><span class="l2">RFO</span> </button>
+         </div>
+    </div>
+    <div class="filter-menu">
+        <div class="search-loc-container">
+            <input type="text"  class="search-main"  placeholder="Seach.."
+             onfocus="filterInit();"/>    
+           <div class="next-back-con">
+            <button class="back-btn" onclick="filterSearchClose();">
+                back
+             </button>
+             <button class="save-loc-btn">
+                Next
+             </button>
+           </div>
+        </div>
+    </div>
+    <div class="filter-condo-info">
+             
+    </div>
+    
+ </div>
+<script defer>
+    function filterInit() {
+        document.querySelector('.search-loc-container').style.width='100%'; 
+             document.querySelector('.search-loc-container').style.top = '0';
+             document.querySelector('.next-back-con').style.setProperty('--show-btn','flex');
+    }
+    function filterSearchClose() {
+        document.querySelector('.search-loc-container').style.width='auto';
+            document.querySelector('.next-back-con').style.setProperty('--show-btn','none');
+            document.querySelector('.search-loc-container').style.width='80%'; 
+            document.querySelector('.search-loc-container').style.height='auto'; 
+            document.querySelector('.search-loc-container').style.top = 'auto';
+    }
+    const search_focus = document.querySelector(".search-loc-container");
+
+    const rent_type_btn_container = document.querySelector(".renting-type-pref");
+    const rent_type_btn2 = rent_type_btn_container.children[1];
+    const rent_type_btn1 = rent_type_btn_container.children[0];
+    const line1 = window.getComputedStyle(rent_type_btn1)
+                          .getPropertyValue('width');
+    const line2 = window.getComputedStyle(rent_type_btn2)
+                          .getPropertyValue('width');
+    rent_type_btn_container.style.setProperty("--line", "red");
+    rent_type_btn_container.style.setProperty("--line-width", line1);
+
+    document.querySelector(".search-main").addEventListener("focus",()=>{
+        search_focus.style.height = "100vh";
+    })
+    rent_type_btn2.addEventListener("click",()=>{
+        rent_type_btn_container.style.setProperty("--line", "red");
+        rent_type_btn_container.style.setProperty("--line-width", line2);
+        rent_type_btn_container.style.setProperty("--transform-line", line1);
+        rent_type_btn1.style.setProperty("--rtp-font-color", "gray");
+        rent_type_btn2.style.setProperty("--rtp-font-color", "black");
+    })
+    rent_type_btn1.addEventListener("click",()=>{
+        rent_type_btn_container.style.setProperty("--line", "red");
+        rent_type_btn_container.style.setProperty("--line-width", line1);
+        rent_type_btn_container.style.setProperty("--transform-line", 0);
+        rent_type_btn2.style.setProperty("--rtp-font-color", "gray");
+        rent_type_btn1.style.setProperty("--rtp-font-color", "black");
+    })
+    function searchBtnInit() {
+        document.querySelector('.search-loc-container').style.width='auto';
+        document.querySelector('.search-loc-container').style.height='auto';
+    }
+</script>

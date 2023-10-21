@@ -1,0 +1,273 @@
+:root {
+    --transform-line: 0;
+}
+
+.next-back-con, #filter-search {
+    display: none;
+}
+
+.filter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    margin: 0%;
+}
+
+.filter select {
+    border: 0;
+    width: 100%;
+    background-color: rgb(232, 227, 227);
+    margin: 0%;
+    text-align: center;
+}
+
+.filter select:first-child {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.search-bar {
+    width: 120%;
+    height: 3.5rem;
+    margin-left: 0%;
+    border: 0;
+    padding-left: 1rem;
+}
+
+.search-bar:focus {
+    border: 0;
+    outline: 0.25px solid black;
+}
+
+
+.search-btn {
+    min-width: 30%;
+    border: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #3b5784;
+    border: none;
+    margin: 0;
+}
+
+.search-filter-container {
+    position: absolute;
+    top: 65%;
+    width: 60%;
+    min-height: 3rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    margin: 0%;
+    border-radius: calc(0.5% + 25px);
+    background-color: white;
+    padding: 0.5%;
+}
+
+.container {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+@media (max-width:600px) {
+    .filter {
+        background-color: aliceblue;
+    }
+
+    .search-filter-container {
+        background-color: aliceblue;
+    }
+
+    .filter-condo-info {
+        width: 80%;
+        height: 30%;
+        align-self: center;
+        border-radius: 25px;
+        outline: 1px solid black;
+    }
+
+    .filter-menu {
+        width: 90%;
+        height: 35%;
+        align-self: center;
+        border-radius: 25px;
+        outline: 1px solid black;
+        display: flex;
+        justify-content: center;
+    }
+
+    .top-filter-search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 4rem;
+        background-color: antiquewhite;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .renting-type-pref {
+        gap: 2rem;
+        position: fixed;
+    }
+
+    .renting-type-pref:after {
+        display: block;
+        content: " ";
+        width: var(--line-width, auto);
+        height: 2px;
+        background-color: var(--line, #3b5784);
+        margin-left: var(--transform-line);
+        transition: 300ms;
+    }
+
+    .renting-type-pref button {
+        border: none;
+        background: none;
+        font-size: 0.9rem;
+        font-weight: 530;
+        color: var(--rtp-font-color, gray);
+    }
+
+    .renting-type-pref button:hover {
+        color: black;
+    }
+
+    .renting-type-pref button:after {
+        transition: ease-in 100ms;
+        display: block;
+        content: " ";
+        width: 0%;
+        height: 2px;
+        background-color: #3b5784;
+        transition: 300ms;
+    }
+
+    .filter-search-btn {
+        transition: ease-in 100ms;
+        width: 2rem;
+        height: 2rem;
+        background: url(../assets/icons/close.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        top: 1rem;
+        left: clamp(2rem, 1.5rem, 1rem);
+    }
+
+    #filter-search {
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: aliceblue;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        -webkit-font-smoothing: antialiased;
+        margin: 0%;
+    }
+
+    .search-filter-container {
+        padding: 0%;
+        border-radius: 0%;
+        position: absolute;
+        width: 80%;
+        top: 2rem;
+        left: 10%;
+        margin: 0%;
+        border-radius: 25px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .search-btn span {
+        text-align: left;
+        font-size: 0.90rem;
+        font-weight: 700;
+        margin-inline-start: 0.3rem;
+    }
+
+    .search-loc-container {
+        position: absolute;
+        width: 100%;
+        background-color: rebeccapurple;
+        display: flex;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        transition: 300ms;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0;
+    }
+
+    .next-back-con {
+        display: var(--show-btn, none);
+        justify-content: space-evenly;
+        width: 100%;
+        position: absolute;
+        bottom: 2rem;
+    }
+
+    .search-loc-container button {
+        width: 20%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: none;
+    }
+
+    .search-main {
+        width: 80%;
+        height: 3rem;
+        background: none;
+        border-radius: 25px;
+        padding-left: 1rem;
+        background: url(../assets/icons/search.svg);
+        background-repeat: no-repeat;
+        text-indent: 2rem;
+        background-size: 2rem;
+        background-position: 1rem;
+        font-size: 1rem;
+        align-self: center;
+        position: absolute;
+        top: 2rem;
+    }
+
+    .search-btn span:after {
+        content: "Properties | Condominium ";
+        width: 100%;
+        height: 1rem;
+        display: block;
+        font-size: 0.70rem;
+        font-weight: 100;
+        color: gray;
+    }
+
+    .search-btn {
+        position: absolute;
+        width: 70%;
+        height: 4rem;
+        background: none;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        background-color: antiquewhite;
+        outline: 1px solid black;
+    }
+
+    .filter select {
+        display: none;
+    }
+
+}

@@ -1,0 +1,55 @@
+---
+import Discover from "../components/Discover.astro";
+import FeaturedProperty from "../components/FeaturedProperty.astro";
+import Header from "../components/Header.astro";
+import LearnAboutProperty from "../components/LearnAboutProperty.astro";"../components/LearnAboutProperty.astro"
+import Testimonials from "../components/Testimonials.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/logo.png" />
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="hide">
+		<Header/>
+		<main>
+			<FeaturedProperty/>
+			<Discover/>
+			<LearnAboutProperty/>
+			<Testimonials/>
+		</main>
+		<Footer/>
+	</body>
+</html>
+<style>
+    @font-face {
+        font-family: SourceSerif;
+        src: url("../assets/SourceSerif4Caption-Regular.ttf");
+    }
+	.hide{
+		overflow-y: var(--hide, "auto");
+		position: var(--fixed, "absolute");
+		inset: 0;
+
+	}
+	body{
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+		height: 100vh;
+		width: 100%;
+	}
+	main{
+		width:auto;
+		overflow-x: hidden;
+	}
+    *{
+
+		margin: 0;
+		padding: 0%;
+        font-family:SourceSerif ;
+    }
+</style>

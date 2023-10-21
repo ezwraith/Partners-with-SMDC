@@ -1,0 +1,133 @@
+:root {
+    --nav-height: 5rem;
+    --nav-margin-top: 1rem;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    background-color: aliceblue;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.logo {
+    margin: 1em;
+    max-width: 200px;
+    height: auto;
+}
+
+.primary-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.primary-header-con {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.primary-nav {
+    margin: 0%;
+    padding: 0%;
+    background-color: hsl(0 0% 0%/0.3);
+}
+
+@supports(backdrop-filter: blur(1rem)) {
+    .primary-nav {
+        margin: 0%;
+        padding: 0%;
+        backdrop-filter: blur(1rem);
+        background-color: hsl(0 0% 0%/0.1);
+    }
+}
+
+.primary-nav li a, .primary-nav li {
+    text-decoration: none;
+    list-style: none;
+    margin: 0%;
+    padding: 0%;
+    color: rgb(36, 37, 39);
+}
+
+.primary-showcase {
+    z-index: -1;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+}
+
+@media (max-width:600px) {
+
+    .filter-search {
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: bisque;
+        z-index: 3;
+        display: none;
+    }
+
+    .logo {
+        opacity: 0;
+    }
+
+    .primary-showcase {
+        display: flex;
+        justify-content: center;
+        transform: translateY(60%);
+        align-items: center;
+    }
+
+    .video {
+        width: 94%;
+        border-radius: 25px;
+    }
+
+    .primary-nav {
+        --gap: 2rem;
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 4em;
+        transform: translateX(100%);
+        transition: transform 300ms ease-out;
+    }
+
+    .primary-nav[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        top: 2.5rem;
+        right: 10%;
+        width: 3rem;
+        aspect-ratio: 1;
+        z-index: 9999;
+        background: url('../assets/icons/burger-menu-svgrepo-com.svg');
+        background-size: cover;
+        border: 0;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background: url('../assets/icons/close.svg');
+        background-size: cover;
+    }
+
+
+}

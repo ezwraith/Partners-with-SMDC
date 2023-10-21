@@ -1,0 +1,104 @@
+.lap-main-con {
+    height: 100vh;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lap-main-con h1 {
+    align-self: self-start;
+    padding-left: 7.5%;
+}
+
+.properties-con {
+    width: 86%;
+    height: 100%;
+    margin-bottom: 5%;
+    display: flex;
+    gap: 1rem;
+}
+
+.lap-feature-prop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.lap-feature-prop div {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    border-radius: 15px;
+
+}
+
+.lap-showcase {
+    overflow: hidden;
+    width: 80%;
+    border-radius: 15px;
+    height: 100%;
+}
+
+.article-snippet {
+    font-size: 0.90rem;
+}
+
+.article-con {
+    padding: 1rem;
+    word-break: break-all;
+}
+
+.main-prop-showcase {
+    width: 100%;
+    min-height: 400px;
+    background: url(../assets/condo/Jade/Jade-Amenity1-v3.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width:600px) {
+
+
+    .article-con {
+        transform: translateY(-100%);
+    }
+
+    .article-con::before {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        content: "";
+        height: 50%;
+        width: 100%;
+        backdrop-filter: blur(2px);
+        z-index: -1;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .lap-feature-prop div {
+        min-width: 80%;
+        overflow: auto;
+    }
+
+    .properties-con h1 {
+        align-self: self-start;
+        padding-left: 5%;
+    }
+
+    .lap-showcase {
+        background-color: aqua;
+        width: 100%;
+        border-radius: 15px;
+
+    }
+
+    .properties-con {
+        flex-direction: column;
+    }
+
+}
